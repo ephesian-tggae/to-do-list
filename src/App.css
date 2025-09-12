@@ -9,3 +9,35 @@
   padding: 2rem;
   margin: 0 auto;
 }
+
+.todo-text {
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray; /* optional: make it look dimmer */
+}
+
+body.light {
+  background-color: #ffffff;
+  color: #213547;
+}
+
+body.dark {
+  background-color: #242424;
+  color: #ffffff;
+}
+
+body.light input,
+body.light button {
+  background-color: #f9f9f9;
+  color: #213547;
+}
+
+body.dark input,
+body.dark button {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #333;
+}

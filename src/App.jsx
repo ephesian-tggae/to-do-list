@@ -1,12 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
   const [todos, setTodos] = useState([])
   const [inputValue, setInputValue] = useState('')
+  const [theme, setTheme] = useState('dark')
+
+  useEffect(() => {
+    document.body.classList.remove('light', 'dark')
+    document.body.classList.add(theme)
+  }, [theme])
 
   const addTodo = () => {
-    setTodos([...todos, inputValue ]) // add the new todo
+    if (inputValue.trim() === '') return; // prevent empty todos
+    setTodos([...todos, { text: inputValue, completed: false}]) // add the new todo
     setInputValue('') // clear the input
   }
 
@@ -14,10 +21,21 @@ function App() {
     setTodos(todos.filter((_, index) => index !== idToDelete))
   }
 
+  // Toggle complete
+const toggleTodo = (index) => {
+  const newTodos = [...todos]
+  newTodos[index].completed = !newTodos[index].completed
+  setTodos(newTodos)
+}
+
+
   return (
     <>
       <div className="container">
         <h1>Todo List</h1>
+        <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+          Toggle Theme
+        </button>
         <input
           type="text"
           value={inputValue}
@@ -30,7 +48,13 @@ function App() {
         
         <ul>
           {todos.map((todo, index) => (
-            <li key={index}>{todo}
+            <li key={index}>
+              <span
+                onClick={() => toggleTodo(index)}
+                className={`todo-text ${todo.completed ? 'completed' : ''}`}
+              >
+                {todo.text}
+              </span>
               <button onClick={() => deleteTodo(index)}>
                 Delete
               </button>
@@ -38,6 +62,7 @@ function App() {
           ))}
         </ul>
       </div>
+      <div className={`container ${theme}`}></div>
     </>
   )
 }
