@@ -5,9 +5,24 @@
   text-align: center;
 }
 
-.container {
-  padding: 2rem;
-  margin: 0 auto;
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* aligns to the top */
+  height: 100vh; /* full viewport height */
+  margin: 0;
+}
+
+input{
+  width: 100%;        
+  padding: 12px;      
+  font-size: 18px;    
+  border-radius: 6px; 
+}
+
+.todo-container {
+  margin-top: 0; /* no space from top */
+  padding-top: 0;
 }
 
 .todo-text {
@@ -33,11 +48,12 @@ body.light input,
 body.light button {
   background-color: #f9f9f9;
   color: #213547;
+  border: 2px solid #333;
 }
 
 body.dark input,
 body.dark button {
   background-color: #1a1a1a;
   color: #ffffff;
-  border: 1px solid #333;
+  border: 2px solid #333;
 }
