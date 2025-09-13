@@ -31,7 +31,7 @@ const toggleTodo = (index) => {
 
   return (
     <>
-      <div className="container">
+      <div className="todo-container">
         <h1>Todo List</h1>
         <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
           Toggle Theme
@@ -41,6 +41,11 @@ const toggleTodo = (index) => {
           value={inputValue}
           onChange={(event) => setInputValue(event.target.value)}
           placeholder="Type something..."
+          onKeyDown={(event) => {
+            if (event.key === "Enter" && inputValue.trim() !== "") {
+              addTodo()
+            }
+          }}
         />
         <button onClick={addTodo}>
           Add
