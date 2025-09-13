@@ -20,9 +20,16 @@ input{
   border-radius: 6px; 
 }
 
+.controls {
+  display: flex;          /* line them up in a row */
+  gap: 10px;              /* equal spacing between them */
+  margin-bottom: 20px;    /* push the list down */
+}
+
 .todo-container {
   margin-top: 0; /* no space from top */
   padding-top: 0;
+
 }
 
 .todo-text {

@@ -33,24 +33,26 @@ const toggleTodo = (index) => {
     <>
       <div className="todo-container">
         <h1>Todo List</h1>
-        <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-          Toggle Theme
-        </button>
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(event) => setInputValue(event.target.value)}
-          placeholder="Type something..."
-          onKeyDown={(event) => {
-            if (event.key === "Enter" && inputValue.trim() !== "") {
-              addTodo()
-            }
-          }}
-        />
-        <button onClick={addTodo}>
-          Add
-        </button>
+        <div className="controls">
+          <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+            Toggle Theme
+          </button>
         
+          <input
+            type="text"
+            value={inputValue}
+            onChange={(event) => setInputValue(event.target.value)}
+            placeholder="Type something..."
+            onKeyDown={(event) => {
+              if (event.key === "Enter" && inputValue.trim() !== "") {
+                addTodo()
+              }
+            }}
+          />
+          <button onClick={addTodo}>
+            Add
+          </button>
+        </div>
         <ul>
           {todos.map((todo, index) => (
             <li key={index}>
