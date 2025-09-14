@@ -22,12 +22,12 @@ input{
 
 .controls {
   display: flex;          /* line them up in a row */
-  gap: 10px;              /* equal spacing between them */
+  gap: 15px;              /* equal spacing between them */
   margin-bottom: 20px;    /* push the list down */
 }
 
 .todo-container {
-  margin-top: 0; /* no space from top */
+  margin-top: 0; 
   padding-top: 0;
 
 }
@@ -38,7 +38,7 @@ input{
 
 .completed {
   text-decoration: line-through;
-  color: gray; /* optional: make it look dimmer */
+  color: gray; 
 }
 
 body.light {
@@ -64,3 +64,71 @@ body.dark button {
   color: #ffffff;
   border: 2px solid #333;
 }
+
+/* reset list basics */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* main todo container */
+.todo-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 6px;   /* controls the space between checkbox, text, delete */
+  margin: 4px 0;
+}
+
+/* checkbox stays tight next to the text */
+li input[type="checkbox"] {
+  flex: 0 0 auto;    /* don't grow/shrink */
+  margin: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.todo-text {
+  font-size: 22px;       /* make text bigger */
+  margin: 0;             /* remove outside spacing */
+  padding: 0;            /* remove inside spacing */
+  display: inline-block; /* keeps it tight next to checkbox */
+}
+
+button {
+  font-size: 18px;   /* make button text bigger */
+  padding: 6px 12px; /* optional: makes button larger overall */
+}
+
+.add-btn {
+  font-size: 22px;
+}
+
+.delete-btn {
+  font-size: 22px;
+}
+
+.toggle-btn {
+  font-size: 22px;
+  margin-bottom: 20px; /* space between it and the input */
+  padding: 8px 16px;
+  background-color: #007bff; /* blue */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-btn:hover {
+  background-color: #3273b8;
+  transform: scale(1.05);
+}
+
+

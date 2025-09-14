@@ -33,10 +33,16 @@ const toggleTodo = (index) => {
     <>
       <div className="todo-container">
         <h1>Todo List</h1>
+        <button 
+          className="toggle-btn" 
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        >
+          Toggle Theme
+        </button>
         <div className="controls">
-          <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+          {/* <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
             Toggle Theme
-          </button>
+          </button> */}
         
           <input
             type="text"
@@ -56,6 +62,11 @@ const toggleTodo = (index) => {
         <ul>
           {todos.map((todo, index) => (
             <li key={index}>
+              <input
+                type="checkbox"
+                checked={todo.completed}
+                onChange={() => toggleTodo(index)}
+              />
               <span
                 onClick={() => toggleTodo(index)}
                 className={`todo-text ${todo.completed ? 'completed' : ''}`}
